@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 import { Users } from "../schemas/user-schema.js";
 const uri =
-  "mongodb+srv://Byambasuren11:80664525Bn$@cluster0.veh63.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://Byambasuren11:80664525Bn$@cluster0.veh63.mongodb.net/Users?retryWrites=true&w=majority&appName=Cluster0";
 const connectDb = async () => {
   try {
     await mongoose.connect(uri);
-    console.log("succ");
+    console.log("successful");
   } catch (error) {
     console.log(error);
   }
