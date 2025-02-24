@@ -13,10 +13,11 @@ const connectDb = async () => {
 connectDb();
 
 const userCreate= async (req, res) => {
-    const { name } = req.body;
+    const { email,password } = req.body;
     try {
       const newUser = await Users.create({
-        name: name,
+        email: email,
+        password:password
       });
       res.send(newUser);
     } catch (error) {
