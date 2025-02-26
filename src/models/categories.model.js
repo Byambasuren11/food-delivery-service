@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
 const categoriesSchema = new mongoose.Schema({
-  categoryName: { type: String, require: true },
+  categoryName: { type: String, required: true, unique: true },
 });
-export const Users = mongoose.model("food-category", categoriesSchema);
+export const Category = mongoose.model("food-category", categoriesSchema);

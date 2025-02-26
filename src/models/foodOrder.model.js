@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const foodOrderSchema = new mongoose.Schema({
-  user: { type: String, require: true },
-  totalPrice: { type: Number, require: true },
-  foodOrderItems: { type: String },
+  user: { type: mongoose.Types.ObjectId, ref: "Users", required: true },
+  totalPrice: { type: Number, required: true },
+  foodOrderItems: [{ type: mongoose.Types.ObjectId, ref: "foodOrderId" }],
   status: {
     type: String,
     enum: ["PENDING", "CANCELED", "DELIVERED"],
   },
 });
-export const Users = mongoose.model("food-order", foodOrderSchema);
+export const FoodOrder = mongoose.model("food-order ", foodOrderSchema);

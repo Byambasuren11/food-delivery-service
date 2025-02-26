@@ -1,6 +1,4 @@
-import { Users } from "../../models/authentication.model.js";
-
 const getUser = async (req, res) => {
-  res.send(Users);
+  res.send("ho");
 };
 export default getUser;

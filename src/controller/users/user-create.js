@@ -1,11 +1,10 @@
-import { Users } from "../../models/authentication.model.js";
+import { Users } from "../../models/users.model.js";
 
 const userCreate = async (req, res) => {
-  const { email, password } = req.body;
+  const { email } = req.body;
   try {
     const newUser = await Users.create({
       email: email,
-      password: password,
     });
     res.send(newUser);
   } catch (error) {

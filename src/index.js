@@ -3,6 +3,8 @@ import cors from "cors";
 import express from "express";
 import { userRouter } from "./routes/user.routes.js";
 import { AuthenticationRouter } from "./routes/authentication.routes.js";
+import { categoryRouter } from "./routes/category.routes.js";
+import { foodRouter } from "./routes/food.routes.js";
 
 const app = express();
 app.use(express.json());
@@ -24,6 +26,8 @@ connectDb();
 
 app.use("/user", userRouter);
 app.use("/auth", AuthenticationRouter);
+app.use("/food-category", categoryRouter);
+app.use("/food", foodRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
