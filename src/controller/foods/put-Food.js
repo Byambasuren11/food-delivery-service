@@ -11,17 +11,10 @@ const updateFood = async (req, res) => {
       { new: true }
     );
     console.log(updatedFood);
-    if (!updatedFood) {
-      res.status(400).json({
-        success: true,
-        message: "can't find food",
-      });
-    } else {
-      res.status(200).json({
-        success: true,
-        message: `Successfully find the food with ${id}`,
-      });
-    }
+    res.status(200).json({
+      success: true,
+      message: `Successfully find the food with ${id}`,
+    });
   } catch (error) {
     console.log(error);
 

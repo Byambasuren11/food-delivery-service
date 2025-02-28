@@ -4,12 +4,17 @@ const AddCategory = async (req, res) => {
   try {
     const { categoryName } = req.body;
 
+    // console.log(categoryName);
+
     const newCategory = await Category.create({
       categoryName: categoryName,
     });
-    res.send(newCategory);
+    res.status(200).json({
+      success: true,
+      message: `Successfully created the category: ${newCategory}`,
+    });
   } catch (error) {
-    res.status(400).send("");
+    res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
 export default AddCategory;

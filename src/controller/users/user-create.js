@@ -8,7 +8,7 @@ const userCreate = async (req, res) => {
     });
     res.send(newUser);
   } catch (error) {
-    res.status(400).send("");
+    res.status(500).send("");
   }
 };
 export default userCreate;
