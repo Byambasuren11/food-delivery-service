@@ -1,10 +1,11 @@
 import { Category } from "../../models/categories.model.js";
+// import axios from "axios";
 
 const AddCategory = async (req, res) => {
   try {
     const { categoryName } = req.body;
 
-    // console.log(categoryName);
+    console.log(categoryName);
 
     const newCategory = await Category.create({
       categoryName: categoryName,
