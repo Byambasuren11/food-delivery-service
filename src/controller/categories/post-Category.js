@@ -1,5 +1,4 @@
 import { Category } from "../../models/categories.model.js";
-// import axios from "axios";
 
 const AddCategory = async (req, res) => {
   try {
@@ -10,6 +9,7 @@ const AddCategory = async (req, res) => {
     const newCategory = await Category.create({
       categoryName: categoryName,
     });
+    console.log("newCategory", newCategory);
     res.status(200).json({
       success: true,
       message: `Successfully created the category: ${newCategory}`,

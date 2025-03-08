@@ -2,7 +2,7 @@ import { Category } from "../../models/categories.model.js";
 import mongoose from "mongoose";
 
 const updateCategory = async (req, res) => {
-  const { id, categoryName } = req.body;
+  const { id, categoryName } = req.params;
   try {
     const updatedCategory = await Category.findByIdAndUpdate(
       { _id: new mongoose.Types.ObjectId(`${id}`) },

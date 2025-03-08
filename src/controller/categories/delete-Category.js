@@ -2,7 +2,7 @@ import { Category } from "../../models/categories.model.js";
 import mongoose from "mongoose";
 
 const deleteCategory = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
     const deletedCategory = await Category.findByIdAndDelete({
       _id: new mongoose.Types.ObjectId(`${id}`),
