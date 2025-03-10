@@ -13,4 +13,4 @@ const loginUser = async (req, res) => {
   }
   console.log(checkUser);
 };
-export default loginUser;
+

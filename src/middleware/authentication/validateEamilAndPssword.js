@@ -1,4 +1,4 @@
-const validateLogin = async (req, res, next) => {
+export const validateEamilAndPassword = async (req, res, next) => {
   const { email, password } = req.body;
   console.log(email);
   if (!email) {
@@ -11,4 +11,3 @@ const validateLogin = async (req, res, next) => {
     next();
   }
 };
-export default validateLogin;
