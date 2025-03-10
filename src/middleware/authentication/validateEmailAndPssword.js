@@ -1,4 +1,4 @@
-export const validateEamilAndPassword = async (req, res, next) => {
+export const validateEmailAndPassword = async (req, res, next) => {
   const { email, password } = req.body;
   console.log(email);
   if (!email) {

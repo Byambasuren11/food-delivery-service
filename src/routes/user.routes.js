@@ -1,9 +1,9 @@
 import express from "express";
 import getUser from "../controller/users/get-User.js";
 import deleteUser from "../controller/users/delete-User.js";
-import postUser from "../controller/users/post-User.js";
-import { validateEamilAndPassword } from "../middleware/authentication/validateEamilAndPssword.js";
+import { validateEmailAndPassword } from "../middleware/authentication/validateEmailAndPssword.js";
 import { Users } from "../models/users.model.js";
+import { loginUser } from "../controller/users/create-User.js";
 
 export const userRouter = express.Router();
 
@@ -27,9 +27,9 @@ const validateUserEmailExist = async (req, res, next) => {
 
 userRouter.post(
   "/",
-  validateEamilAndPassword,
+  validateEmailAndPassword,
   validateUserEmailExist,
-  createUser
+  loginUser
 );
-// userRouter.get("/", getUser);
-// userRouter.delete("/", deleteUser);
+userRouter.get("/", getUser);
+userRouter.delete("/", deleteUser);
