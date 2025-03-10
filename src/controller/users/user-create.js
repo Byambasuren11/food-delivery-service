@@ -1,15 +1,24 @@
 import { Users } from "../../models/users.model.js";
 
-const userCreate = async (req, res) => {
-  const { email, password } = req.body;
+const postUser = async (req, res, next) => {
+  const { email } = req.body;
   try {
-    const newUser = await Users.create({
-      email: email,
-      password: password,
+    const newUser = await Users.findOne({
+      email,
     });
-    res.send(newUser);
+    if (!newUser) {
+      res.status(200).json({
+        success: true,
+        message: `Successfully`,
+      });
+    } else {
+      res
+        .status(400)
+        .json({ error: true, message: "You already have account" });
+    }
   } catch (error) {
-    res.status(500).send("");
+    console.log(error);
+    res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default userCreate;
+export default postUser;
