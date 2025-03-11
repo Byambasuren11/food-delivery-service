@@ -13,6 +13,6 @@ export const loginUser = async (req, res) => {
       message: `Successfully created the category: ${newUser}`,
     });
   } catch (error) {
-    res.status(500).json({ error: true, message: "Internal Error" });
+    res.status(500).json({ error: true, message: `Internal Error ${error}` });
   }
 };
