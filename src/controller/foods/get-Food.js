@@ -1,6 +1,6 @@
-import { Food } from "../../models/food.model";
+import { Food } from "../../models/food.model.js";
 
-export const GetFood = async () => {
+const GetFood = async (req, res) => {
   try {
     const food = await Food.find({});
     res.status(200).json({
@@ -10,6 +10,7 @@ export const GetFood = async () => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: true, message: "Internal Error" });
+    res.status(500).json({ error: true, message: `Internal Error ${error}` });
   }
 };
+export default GetFood;

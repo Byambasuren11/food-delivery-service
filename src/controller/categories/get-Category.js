@@ -10,7 +10,7 @@ const getCategory = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: true, message: "Internal Error" });
+    res.status(500).json({ error: true, message: `Internal Error ${error}` });
   }
 };
 export default getCategory;

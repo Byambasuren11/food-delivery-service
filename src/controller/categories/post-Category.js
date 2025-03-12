@@ -4,8 +4,6 @@ const AddCategory = async (req, res) => {
   try {
     const { categoryName } = req.body;
 
-    console.log(categoryName);
-
     const newCategory = await Category.create({
       categoryName: categoryName,
     });
