@@ -8,5 +8,6 @@ import { validateEmail } from "../middleware/authentication/validateEmail.js";
 export const userRouter = express.Router();
 
 userRouter.post("/", validateEmailAndPassword, validateEmail, loginUser);
+// userRouter.post("/", validateEmailAndPassword, loginUser);
 userRouter.get("/", getUser);
 userRouter.delete("/", deleteUser);

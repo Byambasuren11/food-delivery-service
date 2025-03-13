@@ -4,9 +4,4 @@ import { loginUser } from "../controller/users/create-User.js";
 import { validateEmail } from "../middleware/authentication/validateEmail.js";
 export const AuthenticationRouter = express.Router();
 
-AuthenticationRouter.post(
-  "/login",
-  validateEmail,
-  validateEmailAndPassword,
-  loginUser
-);
+AuthenticationRouter.post("/login", validateEmailAndPassword, loginUser);
