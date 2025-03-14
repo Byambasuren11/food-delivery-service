@@ -15,7 +15,9 @@ const AddFood = async (req, res) => {
   } catch (error) {
     console.log(error);
 
-    res.status(400).send("");
+    res
+      .status(400)
+      .send({ error: true, message: `"Internial error" ${error}` });
   }
 };
 export default AddFood;
