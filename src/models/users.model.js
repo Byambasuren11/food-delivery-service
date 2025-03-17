@@ -13,7 +13,7 @@ const usersSchema = new mongoose.Schema({
     default: "USER",
   },
   // isVerified: { type: Boolean, default: now },
-  createdAt: { type: Date, default: now },
+  createdAt: { type: Date, default: Date.now() },
   // updatedAt: { type: Date },
 });
 export const Users = mongoose.model("Users", usersSchema);
