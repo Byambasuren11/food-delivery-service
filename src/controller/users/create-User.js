@@ -1,4 +1,5 @@
 import { Users } from "../../models/users.model.js";
+import jwt from "jsonwebtoken";
 
 export const loginUser = async (req, res) => {
   try {
@@ -12,6 +13,7 @@ export const loginUser = async (req, res) => {
         res.status(200).json({
           success: true,
           message: `Successfully login: ${newUser}`,
+          token:token,
         });
       } else {
         res.status(400).json({ error: true, message: `Wrong password ` });
