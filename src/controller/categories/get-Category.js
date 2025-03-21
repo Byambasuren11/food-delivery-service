@@ -2,15 +2,34 @@ import { Category } from "../../models/categories.model.js";
 
 const getCategory = async (req, res) => {
   try {
-    const category = await Category.find({});
+    const category = await Category.aggregate([
+      {
+        $lookup: {
+          from: "foods",
+          localField: "_id",
+          foreignField: "category",
+          as: "foodCount",
+        },
+      },
+      {
+        $project: {
+          categoryName: 1,
+          foodCount: { $size: "$foodCount" },
+        },
+      },
+    ]);
+
     res.status(200).json({
       success: true,
       data: category,
-      message: `Successfully`,
+      message: "Successfully fetched categories",
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: true, message: `Internal Error ${error}` });
+    console.error("Error fetching categories:", error);
+    res
+      .status(500)
+      .json({ error: true, message: `Internal Error: ${error.message}` });
   }
 };
+
 export default getCategory;
