@@ -5,15 +5,22 @@ export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const newUser = await Users.findOne({
+    const findUser = await Users.findOne({
       email,
     });
-    if (newUser.email === email) {
-      if (newUser.password === password) {
+    const decodePassword = "777";
+    const token = jwt.sign({ email: findUser.email }, decodePassword, {
+      expiresIn: "1h",
+    });
+    console.log(findUser);
+    console.log(token);
+
+    if (findUser.email === email) {
+      if (findUser.password === password) {
         res.status(200).json({
           success: true,
-          message: `Successfully login: ${newUser}`,
-          token:token,
+          message: `Successfully login: ${findUser}`,
+          token: token,
         });
       } else {
         res.status(400).json({ error: true, message: `Wrong password ` });
