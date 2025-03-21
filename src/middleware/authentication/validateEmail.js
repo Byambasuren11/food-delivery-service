@@ -9,14 +9,15 @@ export const validateEmail = async (req, res, next) => {
       email: email,
       password: password,
     });
-    res.status(200).json({
-      success: true,
-      message: `Successfully created the user: ${newUser}`,
-    });
+    next();
+    // res.status(200).json({
+    //   success: true,
+    //   message: `Successfully created the user: ${newUser}`,
+    // });
   } else {
     next();
-    res
-      .status(400)
-      .json({ error: true, message: "You already have a account" });
+    //   res
+    //     .status(400)
+    //     .json({ error: true, message: "You already have a account" });
   }
 };

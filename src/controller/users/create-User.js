@@ -12,14 +12,12 @@ export const loginUser = async (req, res) => {
     const token = jwt.sign({ email: findUser.email }, decodePassword, {
       expiresIn: "1h",
     });
-    console.log(findUser);
-    console.log(token);
 
     if (findUser.email === email) {
       if (findUser.password === password) {
         res.status(200).json({
           success: true,
-          message: `Successfully login: ${findUser}`,
+          message: `Successfully login`,
           token: token,
         });
       } else {
