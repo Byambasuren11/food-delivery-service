@@ -18,6 +18,8 @@ export const loginUser = async (req, res) => {
         res.status(200).json({
           success: true,
           message: `Successfully login`,
+          data: findUser.address,
+          _id: findUser._id,
           token: token,
         });
       } else {

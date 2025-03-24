@@ -4,7 +4,7 @@ const usersSchema = new mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   // phoneNumber: { type: Number, required: true },
-  // address: { type: String, required: true },
+  address: { type: String, required: true, default: "Add Location" },
   orderedFoods: { type: mongoose.Types.ObjectId, ref: "food" },
   role: {
     type: String,
