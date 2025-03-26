@@ -5,6 +5,7 @@ import { userRouter } from "./routes/user.routes.js";
 import { AuthenticationRouter } from "./routes/authentication.routes.js";
 import { categoryRouter } from "./routes/category.routes.js";
 import { foodRouter } from "./routes/food.routes.js";
+import { OrderRouter } from "./routes/order.routes.js";
 
 const app = express();
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use("/user", userRouter);
 app.use("/auth", AuthenticationRouter);
 app.use("/food-category", categoryRouter);
 app.use("/food", foodRouter);
+app.use("/food-order", OrderRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
