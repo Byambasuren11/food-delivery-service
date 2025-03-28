@@ -2,19 +2,19 @@ import { FoodOrder } from "../../models/foodOrder.model.js";
 
 const PostOrder = async (req, res) => {
   try {
-    const { food, quantity } = req.body;
+    const { totalPrice, foodOrderItems, user } = req.body;
 
     const newOrder = await FoodOrder.create({
-      food: food,
-      quantity: quantity,
+      totalPrice: totalPrice,
+      foodOrderItems: foodOrderItems,
+      user: user,
     });
     res.status(200).json({
       success: true,
-      message: `Successfully update with ${food}`,
+      message: `Successfully create ${foodOrderItems}`,
       newOrder: newOrder,
     });
   } catch (error) {
-    console.log(error);
     res
       .status(400)
       .send({ error: true, message: `"Internial error" ${error}` });
