@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { now } from "mongoose";
 
 const foodOrderSchema = new mongoose.Schema({
   user: { type: mongoose.Types.ObjectId, ref: "Users", required: true },
@@ -14,5 +14,6 @@ const foodOrderSchema = new mongoose.Schema({
     enum: ["PENDING", "CANCELED", "DELIVERED"],
     default: "PENDING",
   },
+  createdAt: { type: Date, default: now },
 });
 export const FoodOrder = mongoose.model("food-order ", foodOrderSchema);
