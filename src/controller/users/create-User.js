@@ -19,7 +19,7 @@ export const loginUser = async (req, res) => {
           success: true,
           message: `Successfully login`,
           data: findUser.address,
-          _id: findUser._id,
+          user: findUser,
           token: token,
         });
       } else {
