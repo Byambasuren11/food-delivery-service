@@ -29,6 +29,7 @@ app.use("/auth", AuthenticationRouter);
 // app.use("/food-category", categoryRouter);
 // app.use("/food", foodRouter);
 // app.use("/food-order", OrderRouter);
+console.log("this is working");
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
