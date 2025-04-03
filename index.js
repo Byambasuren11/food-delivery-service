@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 import cors from "cors";
 import express from "express";
-import { userRouter } from "./routes/user.routes.js";
-import { AuthenticationRouter } from "./routes/authentication.routes.js";
-import { categoryRouter } from "./routes/category.routes.js";
-import { foodRouter } from "./routes/food.routes.js";
-import { OrderRouter } from "./routes/order.routes.js";
+import { userRouter } from "./src/routes/user.routes.js";
+import { AuthenticationRouter } from "./src/routes/authentication.routes.js";
+import { categoryRouter } from "./src/routes/category.routes.js";
+import { foodRouter } from "./src/routes/food.routes.js";
+import { OrderRouter } from "./src/routes/order.routes.js";
 
 const app = express();
 app.use(express.json());
