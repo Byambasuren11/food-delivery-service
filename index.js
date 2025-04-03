@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import cors from "cors";
 import express from "express";
-import { userRouter } from "./src/routes/user.routes.js";
+// import { userRouter } from "./src/routes/user.routes.js";
 import { AuthenticationRouter } from "./src/routes/authentication.routes.js";
 import { categoryRouter } from "./src/routes/category.routes.js";
 import { foodRouter } from "./src/routes/food.routes.js";
@@ -25,7 +25,7 @@ const connectDb = async () => {
 
 connectDb();
 
-app.use("/user", userRouter);
+// app.use("/user", userRouter);
 app.use("/auth", AuthenticationRouter);
 app.use("/food-category", categoryRouter);
 app.use("/food", foodRouter);
