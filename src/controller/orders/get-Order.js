@@ -1,7 +1,7 @@
 import { FoodOrder } from "../../models/foodOrder.model.js";
 import { Users } from "../../models/users.model.js";
 
-const GetOrder = async (req, res) => {
+export const GetOrder = async (req, res) => {
   try {
     const orders = await FoodOrder.find().populate("user", "name email"); // Populating user details if needed
 
@@ -19,6 +19,4 @@ const GetOrder = async (req, res) => {
     res.status(500).json({ success: false, message: `Internal Error: ${error.message}` });
   }
 };
-
-export default GetOrder;
 

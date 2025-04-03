@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Users } from "../../models/users.model.js";
 
-const updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
   const { _id, email, password, address } = req.body;
   //   console.log(id);
   try {
@@ -22,4 +22,4 @@ const updateUser = async (req, res) => {
     res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default updateUser;
+

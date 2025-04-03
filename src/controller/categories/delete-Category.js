@@ -1,7 +1,7 @@
 import { Category } from "../../models/categories.model.js";
 import mongoose from "mongoose";
 
-const deleteCategory = async (req, res) => {
+export const deleteCategory = async (req, res) => {
   const { id } = req.params;
   try {
     const deletedCategory = await Category.findByIdAndDelete({
@@ -21,4 +21,3 @@ const deleteCategory = async (req, res) => {
     res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default deleteCategory;

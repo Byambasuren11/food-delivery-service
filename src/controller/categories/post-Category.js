@@ -1,6 +1,6 @@
 import { Category } from "../../models/categories.model.js";
 
-const AddCategory = async (req, res) => {
+export const AddCategory = async (req, res) => {
   try {
     const { categoryName } = req.body;
 
@@ -16,4 +16,3 @@ const AddCategory = async (req, res) => {
     res.status(500).json({ error: true, message: `Internal Error ${error}` });
   }
 };
-export default AddCategory;

@@ -1,6 +1,6 @@
 import { Food } from "../../models/food.model.js";
 
-const AddFood = async (req, res) => {
+export const AddFood = async (req, res) => {
   try {
     const { foodName, price, image, category, ingredients, createdAt } =
       req.body;
@@ -22,4 +22,3 @@ const AddFood = async (req, res) => {
       .send({ error: true, message: `"Internial error" ${error}` });
   }
 };
-export default AddFood;

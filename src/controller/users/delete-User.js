@@ -1,6 +1,6 @@
 import { Users } from "../../models/users.model.js";
 
-const deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
   const { email } = req.body;
   try {
     const deletedUser = await Users.findOne({
@@ -20,4 +20,3 @@ const deleteUser = async (req, res) => {
     res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default deleteUser;

@@ -1,6 +1,6 @@
 import { Users } from "../../models/users.model.js";
 
-const getUser = async (req, res) => {
+export const getUser = async (req, res) => {
   try {
     const users = await Users.find({});
     res.status(200).json({
@@ -13,4 +13,3 @@ const getUser = async (req, res) => {
     res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default getUser;

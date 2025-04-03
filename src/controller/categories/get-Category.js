@@ -1,6 +1,6 @@
 import { Category } from "../../models/categories.model.js";
 
-const getCategory = async (req, res) => {
+export const getCategory = async (req, res) => {
   try {
     const category = await Category.aggregate([
       {
@@ -31,5 +31,3 @@ const getCategory = async (req, res) => {
       .json({ error: true, message: `Internal Error: ${error.message}` });
   }
 };
-
-export default getCategory;

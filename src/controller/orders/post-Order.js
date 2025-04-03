@@ -1,6 +1,6 @@
 import { FoodOrder } from "../../models/foodOrder.model.js";
 
-const PostOrder = async (req, res) => {
+export const PostOrder = async (req, res) => {
   try {
     const { totalPrice, foodOrderItems, user } = req.body;
 
@@ -20,4 +20,3 @@ const PostOrder = async (req, res) => {
       .send({ error: true, message: `"Internial error" ${error}` });
   }
 };
-export default PostOrder;

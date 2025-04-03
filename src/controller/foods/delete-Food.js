@@ -1,7 +1,7 @@
 import { Food } from "../../models/food.model.js";
 import mongoose from "mongoose";
 
-const deleteFood = async (req, res) => {
+export const deleteFood = async (req, res) => {
   const { id } = req.body;
   try {
     const deletedFood = await Food.findByIdAndDelete({
@@ -21,4 +21,3 @@ const deleteFood = async (req, res) => {
     res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default deleteFood;

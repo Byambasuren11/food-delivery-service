@@ -1,7 +1,7 @@
 import { Food } from "../../models/food.model.js";
 import mongoose from "mongoose";
 
-const updateFood = async (req, res) => {
+export const updateFood = async (req, res) => {
   const { id, foodName, price, image, ingredients } = req.body;
   //   console.log(id);
   try {
@@ -21,4 +21,3 @@ const updateFood = async (req, res) => {
     res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default updateFood;

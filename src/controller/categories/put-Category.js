@@ -1,7 +1,7 @@
 import { Category } from "../../models/categories.model.js";
 import mongoose from "mongoose";
 
-const updateCategory = async (req, res) => {
+export const updateCategory = async (req, res) => {
   const { id, categoryName } = req.params;
   try {
     const updatedCategory = await Category.findByIdAndUpdate(
@@ -20,4 +20,3 @@ const updateCategory = async (req, res) => {
     res.status(500).json({ error: true, message: "Internal Error" });
   }
 };
-export default updateCategory;
