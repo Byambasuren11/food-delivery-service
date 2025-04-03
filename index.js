@@ -7,11 +7,6 @@ import { AuthenticationRouter } from "./src/routes/authentication.routes.js";
 // import { foodRouter } from "./src/routes/food.routes.js";
 // import { OrderRouter } from "./src/routes/order.routes.js";
 
-const app = express();
-app.use(express.json());
-app.use(cors());
-const port = 4007;
-
 const url =
   "mongodb+srv://Byambasuren11:80664525Bn$@cluster0.veh63.mongodb.net/Users?retryWrites=true&w=majority&appName=Cluster0";
 const connectDb = async () => {
@@ -24,6 +19,10 @@ const connectDb = async () => {
 };
 
 connectDb();
+const app = express();
+app.use(express.json());
+app.use(cors());
+const port = 4007;
 
 // app.use("/user", userRouter);
 app.use("/auth", AuthenticationRouter);
