@@ -8,6 +8,5 @@ import { validateCategoryName } from "../middleware/categories/categoryCheck.js"
 export const categoryRouter = express.Router();
 
 categoryRouter.post("/", validateCategoryName, AddCategory);
-categoryRouter.delete("/:id", deleteCategory);
 categoryRouter.put("/:id", updateCategory);
 categoryRouter.get("/", getCategory);
